@@ -281,6 +281,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="17-2班第11组火车票汽车票售票管理系统说明文档.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -293,6 +294,8 @@
     <None Include="ticketModule.edmx.diagram">
       <DependentUpon>ticketModule.edmx</DependentUpon>
     </None>
+    <None Include="火车票汽车票售票管理系统.xmind" />
+    <None Include="火车票汽车票售票管理系统数据库.xmind" />
     <Resource Include="Resources\FIcon.ttf" />
     <Resource Include="Wpfz\FIcon.ttf" />
   </ItemGroup>
