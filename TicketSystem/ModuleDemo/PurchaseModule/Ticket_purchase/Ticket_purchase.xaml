@@ -1,0 +1,78 @@
+﻿<z:Windowz x:Class="TicketSystem.ModuleDemo.PurchaseModule.Ticket_purchase.Ticket_purchase"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicketSystem.ModuleDemo.PurchaseModule.Ticket_purchase"
+        xmlns:z="wpfz"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="购买车票" Height="690" Width="1280" WindowStartupLocation="CenterScreen" Background="Beige">
+    <Window.Resources>
+        <DataTemplate x:Key="BirthDateTemplate">
+            <TextBlock Text="{Binding startTime, StringFormat=yyyy-MM-dd HH:mm}" FontSize="15"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Name="t_type" Text="" Visibility="Collapsed" />
+        <Border Background="#F5AA02" BorderThickness="0" Grid.Row="0">
+            <TextBlock Name="ticket_title" Text="火车票购买" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   FontSize="30"  Foreground="White"/>
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel  Name="search_ticket" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">
+                <ComboBox Name="start" Margin="20 0" Width="200" Background="#FF89EBF0" z:Attach.Label="起始地" Style="{StaticResource ComboBoxLabelStyle}"/>
+                <ComboBox Name="end"   Margin="20 0" Width="200" Background="#FF89EBF0" z:Attach.Label="目的地" Style="{StaticResource ComboBoxLabelStyle}"/>
+                <DatePicker Name="time" Style="{StaticResource DatePickerLabelStyle}" Width="200"
+                        z:Attach.Label="开始时间：" Margin="20 0" Background="#70BDCE"
+                        SelectedDate="{x:Static system:DateTime.Today}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <z:Buttonz Name="search" Content="查询车票信息" Iconz="{z:F Icon=e003_搜索}" Click="search_Click"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"  Width="150" Height="35" Margin="20 0"
+                    CornerRadius="20" Background="#FF20A0D1" Foreground="White" BorderThickness="0"   MouseOverBackground="#FF007DE0"
+                           PressedBackground="#FF066BBB" Cursor="Hand" FontSize="16"   />
+                <TextBlock Name="result_num" FontSize="15" Foreground="Red" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <DataGrid   Name="datagrid" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="datagrid_SelectionChanged" Background="Beige">
+                <DataGrid.CellStyle>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                </DataGrid.CellStyle>
+                <DataGrid.Columns >
+                    <DataGridTextColumn  Width="200" Header="车次" Binding="{Binding id}" />
+                    <DataGridTemplateColumn Width="200" Header="发车时间" SortMemberPath="startTime"
+                                    CellTemplate="{StaticResource BirthDateTemplate}"  />
+                    <DataGridTextColumn Width="200" Header="预计用时(小时)" Binding="{Binding predictTime}" />
+                    <DataGridTextColumn Width="200" Header="票价(元)" Binding="{Binding price}" />
+                    <DataGridTextColumn  Width="200" Header="座位总数" Binding="{Binding seats}" />
+                    <DataGridTextColumn Width="200" Header="余票量" Binding="{Binding leftNote}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <z:Buttonz Name="btn_submit" Content="提交" Iconz="{z:F Icon=e013_对号}" Click="btn_submit_Click"
+                HorizontalAlignment="Center" VerticalAlignment="Center"  Width="150" Height="40" Margin="20 0"
+                CornerRadius="20" Background="#16D993" Foreground="White" BorderThickness="0"   MouseOverBackground="#FF00B272"
+                       PressedBackground="#FF069B65" Cursor="Hand" FontSize="16"   />
+            <z:Buttonz Name="btn_cancel" Content="取消" Iconz="{z:F Icon=e082_实心减号}" Click="btn_cancel_Click" 
+                HorizontalAlignment="Center" VerticalAlignment="Center"  Width="150" Height="40" Margin="20 0"
+                CornerRadius="20" Background="#16D993" Foreground="White" BorderThickness="0"   MouseOverBackground="#FF00B272"
+                       PressedBackground="#FF069B65" Cursor="Hand" FontSize="16"   />
+        </StackPanel>
+    </Grid>
+</z:Windowz>

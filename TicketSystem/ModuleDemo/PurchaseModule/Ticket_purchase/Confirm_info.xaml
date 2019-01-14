@@ -1,0 +1,175 @@
+﻿<Window x:Class="TicketSystem.ModuleDemo.PurchaseModule.Ticket_purchase.Confirm_info"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicketSystem.ModuleDemo.PurchaseModule.Ticket_purchase"
+        xmlns:z="wpfz"
+        mc:Ignorable="d"
+        Title="确认乘车人信息" Height="800" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Beige">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#F5AA02">
+            <TextBlock Text="完善乘车人信息" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Foreground="White" FontSize="25"/>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Name="start" Text="开封" FontSize="20"/>
+            <TextBlock Text="&#224;" FontFamily="Wingdings" Margin="10 0" FontSize="25" />
+            <TextBlock Name="end" Text="郑州" FontSize="20"/>
+            <TextBlock Name="type_icon" Text="&#118;" FontFamily="Webdings" Margin="10 0" FontSize="30"/>
+            <TextBlock Name="id" Text="2" FontSize="20"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <z:Buttonz Name="add_user"  Iconz="{z:F Icon=e01e_加号}" IconzMargin="10" IconzSize="20" HorizontalContentAlignment="Center"
+                HorizontalAlignment="Center" VerticalAlignment="Center"  Width="40" Height="40" Margin="20 0"
+                CornerRadius="20" Background="#16D993" Foreground="White" BorderThickness="0"   MouseOverBackground="#FF00B272"
+                       PressedBackground="#FF069B65" Cursor="Hand" FontSize="16" Click="add_user_Click"/>
+        </StackPanel>
+        <Grid Name="user_grid" Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Name="user_border_0" Grid.Row="0" BorderBrush="Aqua" BorderThickness="0 1 0 1">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBox Name="user_name_0"    z:Attach.Label="姓名"      
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13"/>
+                    <TextBox Name="user_phone_0"   z:Attach.Label="联系电话" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                    <TextBox Name="user_id_0"     z:Attach.Label="身份证号" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                </StackPanel>
+            </Border>
+            <Border Name="user_border_1" Grid.Row="1" BorderBrush="Aqua" BorderThickness="0 1 0 1" Visibility="Hidden">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <z:Buttonz Iconz="{z:F Icon=e014_叉号}" IconzSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="White"
+                               Style="{StaticResource ButtonzTransparencyStyle}" Click="reduce_1_Click" Name="reduce_1"/>
+                    <TextBox Name="user_name_1"    z:Attach.Label="姓名"      
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13"/>
+                    <TextBox Name="user_phone_1"   z:Attach.Label="联系电话" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                    <TextBox Name="user_id_1"     z:Attach.Label="身份证号" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                </StackPanel>
+            </Border>
+            <Border Name="user_border_2" Grid.Row="2" BorderBrush="Aqua" BorderThickness="0 1 0 1" Visibility="Hidden">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <z:Buttonz Iconz="{z:F Icon=e014_叉号}" IconzSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="White"
+                               Style="{StaticResource ButtonzTransparencyStyle}" Click="reduce_2_Click" Name="reduce_2"/>
+                    <TextBox Name="user_name_2"    z:Attach.Label="姓名"      
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13"/>
+                    <TextBox Name="user_phone_2"   z:Attach.Label="联系电话" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                    <TextBox Name="user_id_2"     z:Attach.Label="身份证号" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                </StackPanel>
+            </Border>
+            <Border Name="user_border_3" Grid.Row="3" BorderBrush="Aqua" BorderThickness="0 1 0 1" Visibility="Hidden">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <z:Buttonz Iconz="{z:F Icon=e014_叉号}" IconzSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="White"
+                               Style="{StaticResource ButtonzTransparencyStyle}" Click="reduce_3_Click" Name="reduce_3"/>
+                    <TextBox Name="user_name_3"    z:Attach.Label="姓名"      
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13"/>
+                    <TextBox Name="user_phone_3"   z:Attach.Label="联系电话" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                    <TextBox Name="user_id_3"     z:Attach.Label="身份证号" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                </StackPanel>
+            </Border>
+            <Border Name="user_border_4" Grid.Row="4" BorderBrush="Aqua" BorderThickness="0 1 0 1" Visibility="Hidden">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <z:Buttonz Iconz="{z:F Icon=e014_叉号}" IconzSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="White"
+                               Style="{StaticResource ButtonzTransparencyStyle}" Click="reduce_4_Click" Name="reduce_4"/>
+                    <TextBox Name="user_name_4"    z:Attach.Label="姓名"      
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13"/>
+                    <TextBox Name="user_phone_4"   z:Attach.Label="联系电话" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                    <TextBox Name="user_id_4"     z:Attach.Label="身份证号" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                </StackPanel>
+            </Border>
+            <Border Name="user_border_5" Grid.Row="5" BorderBrush="Aqua" BorderThickness="0 1 0 1" Visibility="Hidden">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <z:Buttonz Iconz="{z:F Icon=e014_叉号}" IconzSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="White"
+                               Style="{StaticResource ButtonzTransparencyStyle}" Click="reduce_5_Click" Name="reduce_5"/>
+                    <TextBox Name="user_name_5"    z:Attach.Label="姓名"      
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13"/>
+                    <TextBox Name="user_phone_5"   z:Attach.Label="联系电话" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                    <TextBox Name="user_id_5"     z:Attach.Label="身份证号" 
+                             Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource TextBoxLabelStyle}" VerticalContentAlignment="Center" 
+                             Width="200" Height="30" FontSize="13" />
+                </StackPanel>
+            </Border>
+
+            <Border Name="user_border_sum" Grid.Row="6" BorderBrush="Aqua" BorderThickness="0 1 0 1">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Name="num" Text="共计 人" Height="30" FontSize="18" Margin="0 0 30 0"/>
+                    <TextBlock Name="total_sum" Text="共 元" Height="30" FontSize="18"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <z:Buttonz Name="confirm_btn" Content="确定订单信息" Iconz="{z:F Icon=e013_对号}" Click="confirm_btn_Click"
+                HorizontalAlignment="Center" VerticalAlignment="Center"  Width="150" Height="40" Margin="20 0"
+                CornerRadius="20" Background="#16D993" Foreground="White" BorderThickness="0"   MouseOverBackground="#FF00B272"
+                       PressedBackground="#FF069B65" Cursor="Hand" FontSize="16"   />
+            <z:Buttonz Name="reselection_btn" Content="重新选择车次" Iconz="{z:F Icon=e030_重复}" Click="reselection_btn_Click"
+                HorizontalAlignment="Center" VerticalAlignment="Center"  Width="150" Height="40" Margin="20 0"
+                CornerRadius="20" Background="#16D993" Foreground="White" BorderThickness="0"   MouseOverBackground="#FF00B272"
+                       PressedBackground="#FF069B65" Cursor="Hand" FontSize="16"   />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,38 @@
+﻿<core:Windowz
+    xmlns:core="wpfz"
+    x:Class="TicketSystem.ModuleDemo.PersonData.PersonInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="PersonInfoWindow" Height="400" Width="625" ResizeMode="NoResize" Iconz="{core:F Icon=e008_用户}">
+    <Viewbox Height="400" Width="625">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="FontWeight" Value="Black" />
+                        <Setter Property="FontSize" Value="20" />
+                        <Setter Property="Padding" Value="15" />
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <EventSetter Event="Click" Handler="Button_Click" />
+                    </Style>
+                </StackPanel.Resources>
+                <Button Content="个人资料" Name="person_info" Tag="../../ModuleDemo/PersonData/Person_InfoPage.xaml" Foreground="Blue"/>
+                <Border Width="1" BorderBrush="AliceBlue"/>
+                <Button Content="订单信息" Name="ticket_info" Tag="../../ModuleDemo/PersonData/Ticket_InfoPage.xaml"/>
+                <!--01迭代-->
+                <Border Width="1" BorderBrush="AliceBlue"/>
+                <Button Content="优惠券" Name="person_CutPrice" Tag="../../ModuleDemo/PersonData/person_CutPrice.xaml"/>
+                <!---->
+                </StackPanel>
+            <Border Height="1" BorderBrush="Beige" BorderThickness="1" Margin="15 0"/>
+        </StackPanel>
+        <Frame Name="info_frame"  NavigationUIVisibility="Hidden" Margin="15 0 15 15" 
+                       Source="Person_InfoPage.xaml"/>
+    </DockPanel>
+    </Viewbox>
+</core:Windowz>

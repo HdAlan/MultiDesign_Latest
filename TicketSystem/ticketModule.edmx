@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ticketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="adminPwd" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Append_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="fromuid" Type="int" />
+          <Property Name="trueName" Type="nvarchar" MaxLength="50" />
+          <Property Name="phoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDnumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="radius" Type="float" />
+          <Property Name="angle" Type="float" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="oid" />
+          </Key>
+          <Property Name="oid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="vid" Type="int" />
+          <Property Name="type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="price_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="car_price" Type="money" Nullable="false" />
+          <Property Name="car_time" Type="float" Nullable="false" />
+          <Property Name="train_price" Type="money" Nullable="false" />
+          <Property Name="train_time" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="trueName" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender" Type="nchar" MaxLength="10" />
+          <Property Name="nativePlace" Type="nvarchar" MaxLength="50" />
+          <Property Name="loginEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="loginPWD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDnumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="headPhoto" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="vehicle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="startPlace" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="endPlace" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="startTime" Type="datetime" Nullable="false" />
+          <Property Name="predictTime" Type="float" />
+          <Property Name="seats" Type="int" Nullable="false" />
+          <Property Name="leftNote" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ticketModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Append_User" EntityType="Self.Append_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="price_info" EntityType="Self.price_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vehicle" EntityType="Self.vehicle" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ticketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ticketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin" EntityType="ticketModel.admin" />
+          <EntitySet Name="Append_User" EntityType="ticketModel.Append_User" />
+          <EntitySet Name="city" EntityType="ticketModel.city" />
+          <EntitySet Name="order" EntityType="ticketModel.order" />
+          <EntitySet Name="price_info" EntityType="ticketModel.price_info" />
+          <EntitySet Name="user" EntityType="ticketModel.user" />
+          <EntitySet Name="vehicle" EntityType="ticketModel.vehicle" />
+        </EntityContainer>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="adminPwd" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Append_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="fromuid" Type="Int32" />
+          <Property Name="trueName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="radius" Type="Double" />
+          <Property Name="angle" Type="Double" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="oid" />
+          </Key>
+          <Property Name="oid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="vid" Type="Int32" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="price_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="car_price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="car_time" Type="Double" Nullable="false" />
+          <Property Name="train_price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="train_time" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trueName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="nativePlace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loginEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loginPWD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="headPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vehicle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="startPlace" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="endPlace" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="startTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="predictTime" Type="Double" />
+          <Property Name="seats" Type="Int32" Nullable="false" />
+          <Property Name="leftNote" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ticketModelStoreContainer" CdmEntityContainer="ticketEntities">
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="ticketModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="adminPwd" ColumnName="adminPwd" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="aid" ColumnName="aid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Append_User">
+            <EntityTypeMapping TypeName="ticketModel.Append_User">
+              <MappingFragment StoreEntitySet="Append_User">
+                <ScalarProperty Name="IDnumber" ColumnName="IDnumber" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="trueName" ColumnName="trueName" />
+                <ScalarProperty Name="fromuid" ColumnName="fromuid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="city">
+            <EntityTypeMapping TypeName="ticketModel.city">
+              <MappingFragment StoreEntitySet="city">
+                <ScalarProperty Name="angle" ColumnName="angle" />
+                <ScalarProperty Name="radius" ColumnName="radius" />
+                <ScalarProperty Name="city1" ColumnName="city" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order">
+            <EntityTypeMapping TypeName="ticketModel.order">
+              <MappingFragment StoreEntitySet="order">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="vid" ColumnName="vid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="oid" ColumnName="oid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="price_info">
+            <EntityTypeMapping TypeName="ticketModel.price_info">
+              <MappingFragment StoreEntitySet="price_info">
+                <ScalarProperty Name="train_time" ColumnName="train_time" />
+                <ScalarProperty Name="train_price" ColumnName="train_price" />
+                <ScalarProperty Name="car_time" ColumnName="car_time" />
+                <ScalarProperty Name="car_price" ColumnName="car_price" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="ticketModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="headPhoto" ColumnName="headPhoto" />
+                <ScalarProperty Name="IDnumber" ColumnName="IDnumber" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="loginPWD" ColumnName="loginPWD" />
+                <ScalarProperty Name="loginEmail" ColumnName="loginEmail" />
+                <ScalarProperty Name="nativePlace" ColumnName="nativePlace" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="trueName" ColumnName="trueName" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vehicle">
+            <EntityTypeMapping TypeName="ticketModel.vehicle">
+              <MappingFragment StoreEntitySet="vehicle">
+                <ScalarProperty Name="leftNote" ColumnName="leftNote" />
+                <ScalarProperty Name="seats" ColumnName="seats" />
+                <ScalarProperty Name="predictTime" ColumnName="predictTime" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="endPlace" ColumnName="endPlace" />
+                <ScalarProperty Name="startPlace" ColumnName="startPlace" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

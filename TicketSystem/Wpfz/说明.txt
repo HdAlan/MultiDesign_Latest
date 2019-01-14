@@ -1,0 +1,47 @@
+﻿Wpfz作者：马骏，仅供同学们自己学习用，请尊重作者的辛苦劳动，切记不要扩散，更不能上传到网上。
+Wpfz文件夹下共包含了四个文件：
+    FIcon.ttf（必须包含）
+    Styles.xaml（必须包含）
+    Wpfz.dll（必须包含）
+    Wpfz.pdb（可选。该文件的用途是指出Wpfz.dll源代码中哪个地方出错了，供作者修改bug用）
+
+请严格按下面的步骤操作：
+1、将Wpfz文件夹复制到项目的根文件夹下。
+2、将Wpfz文件夹下的Wpfz.dll、Wpfz.pdb、FIcon.ttf的【生成操作】属性全部设置为“无”，【复制到输出目录】属性设置为“不复制”。
+3、在项目中新建Resources文件夹，将Wpfz文件夹下的FIcon.ttf复制到Resources下，然后将Resources文件夹下该文件的【生成操作】属性设置为“Resource”，【复制到输出目录】属性设置为“不复制”。
+4、鼠标右击【引用】-->【添加引用】，然后单击下方的【浏览】，找到项目根文件夹下的Wpfz.dll，单击【添加】。
+5、在App.xaml中添加：
+   <ResourceDictionary Source="/Wpfz;component/Themes/GenericThemes.xaml"/>
+   <ResourceDictionary Source="/Wpfz/Styles.xaml"/>
+按上面的步骤完成后，以后就可以在窗口和页中正常使用wpfz提供的所有功能了。
+
+基本用法示例1：
+<Page ......
+      xmlns:z="wpfz"
+      ......>
+<StackPanel>
+        <z:Buttonz Iconz="{z:F Icon=e182_拨号}"
+                          IconzSize="130"
+                         ToolTip="打电话"
+                         HorizontalAlignment="Center"
+                        Style="{StaticResource ButtonzTransparencyStyle}"/>
+</StackPanel>
+
+基本用法示例2：
+<Page ......
+      xmlns:z="wpfz"
+      ......>
+<WrapPanel>
+        <WrapPanel.Resources>
+            <Style TargetType="z:Buttonz" BasedOn="{StaticResource ButtonzTransparencyStyle}">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="AllowsAnimation" Value="False"/>
+                <Setter Property="IconzSize" Value="130"/>
+            </Style>
+        </WrapPanel.Resources>
+        <z:Buttonz Iconz="{z:F Icon=e182_拨号}" ToolTip="打电话"/>
+        <z:Buttonz Iconz="{z:F Icon=e005_实心爱心}" ToolTip="爱心" IsEnabled="False"/>
+        <z:Buttonz Iconz="{z:F Icon=e006_实心五角星}" ToolTip="五角星"/>
+        <z:Buttonz Iconz="{z:F Icon=e105_睁眼}" ToolTip="睁眼"/>
+        <z:Buttonz Iconz="{z:F Icon=e007_空心五角星}" ToolTip="五角星"/>
+</WrapPanel>

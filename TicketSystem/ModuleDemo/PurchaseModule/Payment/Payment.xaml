@@ -1,0 +1,27 @@
+﻿<z:Windowz x:Class="TicketSystem.ModuleDemo.PurchaseModule.Payment.Payment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicketSystem.ModuleDemo.PurchaseModule.Payment"
+        xmlns:z="wpfz"
+        mc:Ignorable="d"
+        Title="付款" Height="600" Width="800" >
+    <z:Windowz.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="White" Offset="1"/>
+            <GradientStop Color="#FF32C4FB" Offset="0.003"/>
+            <GradientStop Color="#FF88D5F1" Offset="0.493"/>
+            <GradientStop Color="#FFC6ECF9" Offset="0.77"/>
+        </LinearGradientBrush>
+    </z:Windowz.Background>
+    <StackPanel HorizontalAlignment="Center" >
+        <Image Name="qrcode" Width="300" Height="300" Margin="0 20" />
+        <TextBlock Text="请扫码，并将扫码得到的数字填写到输入框中以完成付款操作！" Margin="0 20" FontSize="20"/>
+        <PasswordBox Name="input_ver" z:Attach.Label="请输入验证数字" Style="{StaticResource PasswordBoxLabelStyle}" Width="300" Height="40" Margin="0 20" Background="#FFC4FDC9" FontSize="15"/>
+        <z:Buttonz Name="submit" Content="提交" Iconz="{z:F Icon=e013_对号}" Click="submit_Click"
+                HorizontalAlignment="Center" VerticalAlignment="Center"  Width="150" Height="30" Margin="20 0"
+                CornerRadius="20" Background="#16D993" Foreground="White" BorderThickness="0"   MouseOverBackground="#FF00B272"
+                       PressedBackground="#FF069B65" Cursor="Hand" FontSize="16"   />
+    </StackPanel>
+</z:Windowz>
